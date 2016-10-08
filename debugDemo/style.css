@@ -1,0 +1,198 @@
+/*----------------------- 通用 ----------------------------*/
+body,html{
+    overflow: auto; width: 100%;
+}
+body{
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+label {
+    white-space:nowrap;
+    color: #5a5b6f;
+}
+i{
+    font-style: normal;
+}
+.modal-content label{
+    white-space: normal;
+}
+label:after{
+    content: attr(data-symbol);
+}
+.notAllowed{
+    cursor: not-allowed!important;
+}
+.star{
+    color: red;
+    padding-right: 5px;
+    vertical-align: middle;
+    font-style: normal;
+}
+.noData{
+    text-align: center;
+    padding: 30px 0;
+    font-size: 14px;
+    color: #bababa;
+}
+.link,.link:hover,.link:focus{
+    color: #7592d6;
+    cursor: pointer;
+    text-decoration: none;
+}
+.colorblock{
+    background: #fbfbfb;
+    color: #acacac;
+    border-radius: 2px;
+    border: 1px solid #c4c4c4;
+    padding: 0 4px;
+    text-align: center;
+    display: inline-block;
+    line-height: 19px;
+}
+.colorblock.on{
+    background: #7694dc;
+    border-color: #7694dc;
+    color: #fff;
+}
+.colorblock.warn{
+    background: #e5582b;
+    color: #fff;
+    border-color: #e5582b;
+}
+/*----------------------- M-Thread ----------------------------*/
+.M-Thread table,.M-Comment table,.M-Subthread table{
+    width: 100%;
+    border: 1px solid #f3f3f3;
+}
+.M-Thread thead,.M-Comment thead,.M-Subthread thead{
+    background: #f8f8f8;
+    line-height: 30px;
+}
+.M-Thread thead i,.M-Comment thead i,.M-Subthread thead i{
+    margin-right: 10px;
+}
+.M-Thread thead .type,.M-Comment thead .type,.M-Subthread thead .type{
+    border: 1px solid #95c637;
+    background: #fff;
+    color: #95c637;
+    padding: 0 10px;
+    text-align: center;
+    display: inline-block;
+    line-height: 19px;
+}
+.M-Thread thead,.M-Thread tbody
+,.M-Comment thead,.M-Comment tbody
+,.M-Subthread thead,.M-Subthread tbody{
+    padding-left: 10px;
+}
+.M-Thread td,.M-Comment td,.M-Subthread td{
+    line-height: 25px;
+}
+.M-Thread th:first-child,.M-Thread td:first-child
+,.M-Comment th:first-child
+,.M-Subthread th:first-child{
+    padding-left: 12px;
+}
+.M-Thread tbody td{
+    padding: 12px 10px 12px 0;
+}
+.M-Thread tr li{
+    float: left;
+}
+.M-Thread td li{
+    margin: 0 10px 10px 0;
+    cursor:pointer;
+}
+.M-Thread td li:last-child{
+    margin-right: 0;
+}
+.M-Thread .content{
+    position: relative;
+    min-height: 50px;
+    padding-left: 63px;
+    word-break: break-word;
+}
+.M-Thread .content .img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left:0;
+    top:0;
+}
+.M-Thread .content .img img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.M-Thread .content .title,
+.M-Thread .content .cnt p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+    word-break: break-all;
+}
+.M-Thread .content .title{
+    -webkit-line-clamp: 1;
+    height: 25px;
+}
+.M-Thread .content .title{
+    color: #4c71e6;
+}
+.M-Thread .content .cnt{
+    display: inline-block;
+    max-width: 203px;
+}
+.M-Thread .ctl{
+    color: #7693d9;
+}
+.M-Thread .sequence input{
+    width: 100%;
+    padding: 0;
+    border: none;
+}
+
+/*----------------------- M-List ----------------------------*/
+.M-List{ width: 100%; }
+.M-List li{
+    list-style: none;
+}
+.M-List > ul > li{
+    margin: 12px 0;
+}
+.M-ListBottomBox:after{
+    content: '';
+    clear:both;
+    display: block;
+}
+.M-List .leftBox{
+    float: left;
+}
+.M-List .leftBox > *{
+    float: left;
+}
+.M-List .leftBox .M-Btn{
+    margin-right: 9px;
+}
+.M-ListSelectAll{
+    margin-left: 12px;
+}
+.M-List .rightBox{
+    float: right;
+}
+.M-ListInfo{
+    background: #f2fae5;
+    color: #95c637;
+    font-size: 15px;
+    line-height: 31px;
+    padding: 2px 10px;
+    margin: 10px 0;
+}

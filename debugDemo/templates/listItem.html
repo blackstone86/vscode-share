@@ -1,0 +1,108 @@
+<div class="M-Thread">
+	<table>
+		<thead>
+			<tr>
+				<th colspan="{{conf.colums.length}}">
+					<i class="type" ng-switch="dat.hd.dat.type">
+						<span ng-switch-when="1">文章</span>
+						<span ng-switch-when="2">话题</span>
+						<span ng-switch-when="3">照片墙</span>
+					</i>
+					<i>
+						{{dat.hd.dat.creator}}
+						<span ng-if="!dat.hd.dat.isPublishByBg&&dat.hd.dat.mid">
+							({{dat.hd.dat.mid}})
+						</span>
+					</i>
+					<i>{{dat.hd.dat.time | date:'yyyy-MM-dd HH:mm:ss'}}</i>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td ng-if="conf.select" width="{{conf.selectWidth}}">
+					<input type="checkbox" ng-checked="conf.checked" ng-model="conf.checked">
+				</td>
+				<td ng-repeat="c in dat.bd" ng-switch="c.name" width="{{c.width}}">
+					<div ng-switch-when="content" class="content">
+						<div class="img">
+							<img ng-src="imgs/avatar4.png" alt="">
+						</div>
+						<span class="cnt">
+							<span ng-if="c.dat.title" class="title">
+								{{c.dat.title}}
+							</span>
+							<p ng-bind="c.dat.cnt"></p>
+						</span>
+					</div>
+					<ul ng-switch-when="ctl" class="ctl">
+						<li ng-hide="!c.dat.isPublishByBg && (c.dat.type === 2 || c.dat.type === 3)" ng-click="onEdit(c.dat)">
+							编辑
+						</li>
+						<li ng-click="onReport(c.dat.id)">报表</li>
+						<li ng-click="onLink(c.dat)">链接</li>
+						<li ng-click="onComment(c.dat)">评论</li>
+						<li ng-click="onHide(c.dat.id)">删除</li>
+					</ul>
+					<ul ng-switch-when="tag">
+						<li ng-repeat="tag in c.dat" ng-if="tag">
+							<i class="colorblock on">{{tag}}</i>
+						</li>
+					</ul>
+					<ul ng-switch-when="status">
+						<li>
+							<i class="colorblock"
+							   ng-click="toggleTop(c.dat)"
+							   ng-class="{true: 'on', false: ''}[c.dat.top===1]">
+								顶
+							</i>
+						</li>
+						<li>
+							<i class="colorblock"
+							   ng-click="toggleNewRecommend(c.dat)"
+							   ng-class="{true: 'on', false: ''}[c.dat.new_recommend===1]">
+								荐
+							</i>
+						</li>
+						<li ng-show="!c.dat.isPublishByBg&&c.dat.type===1">
+							<i class="colorblock"
+							   ng-click="toggleRecommend(c.dat)"
+							   ng-class="{true: 'on', false: ''}[c.dat.recommend===1]">
+								精
+							</i>
+						</li>
+						<li>
+							<i class="colorblock"
+							   ng-click="toggleShow(c.dat)"
+							   ng-class="{true: 'on', false: ''}[c.dat.status===1]">
+								显
+							</i>
+						</li>
+					</ul>
+					<ul ng-switch-when="event_status">
+						<li>
+							<i class="colorblock on">
+							   {{c.dat}}
+							</i>
+						</li>
+					</ul>
+					<div ng-switch-when="order_idx" class="sequence">
+						<input type="number"
+							   min="0" 
+							   max="9999"
+							   ng-value="c.dat.sortIndex"
+							   ng-model="c.dat.sortIndex"
+							   ng-blur="onOrderIndexBlur(c.dat)">
+					</div>
+					<span ng-switch-when="comments">
+						<span ng-if="c.dat.type===1">{{c.dat.mainthread}}</span>
+						<span ng-if="c.dat.type!==1">{{c.dat.subthread}}</span>
+					</span>
+					<span ng-switch-default>
+						{{c.dat}}
+					</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

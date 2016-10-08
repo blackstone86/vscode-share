@@ -1,0 +1,11 @@
+<div class="M-List">
+	<ul>
+		<li>
+			<button ng-click="render()">渲染列表</button>
+			<button ng-click="remove()">移除列表</button>
+		</li>
+		<li ng-repeat="item in dat">
+			<list-item source="item" config="item.itemConf"></list-item>
+		</li>
+	</ul>
+</div>
